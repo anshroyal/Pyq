@@ -59,7 +59,7 @@ function loadPDF() {
     const term = termSelect.value;
 
     if (cls && sub && term) {
-        const PDFPath = `images/${cls}-${sub}-${term}.pdf`;
+        const PDFPath = `${cls}-${sub}-${term}.pdf`;
         pdfViewer.src =PDFPath;
         viewerContainer.style.display = "block"
                                                                                                                                                                           
@@ -84,4 +84,5 @@ subjectSelect.addEventListener("change", loadPDF);
 termSelect.addEventListener("change", loadPDF);
 </script>
 </body>
+
 </html>
