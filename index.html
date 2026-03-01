@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    
+    <meta charset="UTF-8">
+    <title>PYQ </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body oncontextmenu="return false">
+
+<div class="container">
+    <h1 class="logo" >PYQ</h1>
+    <h6 id = "jj">check previous year exam paper </h6>
+
+    <div class="filters">
+        
+        <select id="class">
+            
+            <option value="">Select Class </option>
+            <option value="11">Class 11</option>
+            
+        </select>
+
+        <select id="subject">
+            <option value="">Select Subject</option>
+            <option value="physics">Physics</option>
+            <option value="english">english</option>
+
+            <option value="chemistry">Chemistry</option>
+            <option value="maths">Mathematics</option>
+        </select>
+
+        <select id="term">
+            <option value="">Select Term</option>
+            <option value="term1">Term 1</option>
+
+        </select>
+    </div>
+
+    <div class="viewer">
+        <iframe id="pdfViewer" ></iframe>
+    </div>
+</div>
+
+<script>
+const classSelect = document.getElementById("class");
+const subjectSelect = document.getElementById("subject");
+const termSelect = document.getElementById("term");
+const image = document.getElementById("pyqImage");
+const viewerContainer = document.querySelector(".viewer")
+
+function loadPDF() {
+    const cls = classSelect.value;
+    const sub = subjectSelect.value;
+    const term = termSelect.value;
+
+    if (cls && sub && term) {
+        const PDFPath = `images/${cls}-${sub}-${term}.pdf`;
+        pdfViewer.src =PDFPath;
+        viewerContainer.style.display = "block"
+                                                                                                                                                                          
+    }
+}
+function changeBackground(subject) {
+    const body = document.body;
+
+    if(subject === "physics"){
+        body.style.background = "linear-gradient(135deg, #0f2027, #203a43, #2c5364)";
+    }
+    else if(subject === "chemistry"){
+        body.style.background = "linear-gradient(135deg, #232526, #414345)";
+    }
+    else if(subject === "maths"){
+        body.style.background = "linear-gradient(135deg, #141e30, #243b55)";
+    }
+}
+
+classSelect.addEventListener("change", loadPDF);
+subjectSelect.addEventListener("change", loadPDF);
+termSelect.addEventListener("change", loadPDF);
+</script>
+</body>
+</html>
