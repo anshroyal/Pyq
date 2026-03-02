@@ -52,8 +52,7 @@ const classSelect = document.getElementById("class");
 const subjectSelect = document.getElementById("subject");
 const termSelect = document.getElementById("term");
 const pdfViewer = document.getElementById("pdfViewer");
-const viewerContainer = document.querySelector(".viewer");
-const loader = document.getElementById("loader");
+const viewer = document.getElementById("viewer");
 const clickLayer = document.getElementById("pdfClickLayer");
 
 let adShown = false;
@@ -64,30 +63,28 @@ function loadPDF() {
     const term = termSelect.value;
 
     if (cls && sub && term) {
+
         const pdfPath = `pdf/${cls}-${sub}-${term}.pdf`;
 
-        viewerContainer.style.display = "block";
-        loader.style.display = "block";
-        pdfViewer.style.display = "none";
-
+        viewer.style.display = "block";
         pdfViewer.src = pdfPath;
 
         pdfViewer.onload = function() {
-            loader.style.display = "none";
-            pdfViewer.style.display = "block";
+            clickLayer.style.display = "block";
         };
-    } else {
-        viewerContainer.style.display = "none";
-        pdfViewer.src = "";
+
+        pdfViewer.onerror = function() {
+            alert("PDF not found. Check file name.");
+            viewer.style.display = "none";
+        };
     }
 }
 
-// 🔥 Ad Redirect On First Click Only
 clickLayer.addEventListener("click", function() {
     if (!adShown) {
-        window.open("https://bony-teaching.com/V6SE7i", "_blank");
+        window.open("YOUR_DIRECT_LINK_HERE", "_blank");
         adShown = true;
-        clickLayer.style.display = "none"; // disable overlay after first click
+        clickLayer.style.display = "none";
     }
 });
 
@@ -100,6 +97,7 @@ termSelect.addEventListener("change", loadPDF);
 </body>
 
 </html>
+
 
 
 
