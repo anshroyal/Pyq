@@ -112,6 +112,9 @@ select:hover{
     cursor:pointer;
     background:transparent;
 }
+.viewer{
+    position:relative;
+}
 
 .logo{
   font-size: 3rem;
@@ -140,3 +143,4 @@ select:hover{
     }
 
 }
+
