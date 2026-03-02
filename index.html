@@ -42,15 +42,10 @@
         </select>
     </div>
 
-    <div class="viewer">
-        
-        <div class="viewer">
-        <div id="pdfClickLayer"></div>
-        <div class="spinner" id="loader"></div>
-        <iframe id="pdfViewer"></iframe>
-        </div>
+    <div class="viewer" id="viewer">
+    <div id="pdfClickLayer"></div>
+    <iframe id="pdfViewer"></iframe>
     </div>
-</div>
 
 <script>
 const classSelect = document.getElementById("class");
@@ -105,6 +100,7 @@ termSelect.addEventListener("change", loadPDF);
 </body>
 
 </html>
+
 
 
 
