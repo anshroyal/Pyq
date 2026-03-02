@@ -64,7 +64,7 @@ function loadPDF() {
 
     if (cls && sub && term) {
 
-        const pdfPath = `pdf/${cls}-${sub}-${term}.pdf`;
+        const pdfPath = `${cls}-${sub}-${term}.pdf`;
 
         viewer.style.display = "block";
         pdfViewer.src = pdfPath;
@@ -97,6 +97,7 @@ termSelect.addEventListener("change", loadPDF);
 </body>
 
 </html>
+
 
 
 
